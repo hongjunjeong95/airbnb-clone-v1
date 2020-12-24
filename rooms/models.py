@@ -49,7 +49,7 @@ class HouseRule(AbstractItem):
         verbose_name = "House Rule"
 
 
-class Photo(AbstractItem):
+class Photo(core_models.TimeStampedModel):
 
     """ Photo Model Definition """
 
