@@ -35,6 +35,7 @@ class RoomAdmin(admin.ModelAdmin):
                     "name",
                     "description",
                     "country",
+                    "city",
                     "address",
                     "price",
                 ),
@@ -59,7 +60,7 @@ class RoomAdmin(admin.ModelAdmin):
                 "fields": (
                     "amenities",
                     "facilities",
-                    "house_rule",
+                    "house_rules",
                 ),
             },
         ),
@@ -74,7 +75,7 @@ class RoomAdmin(admin.ModelAdmin):
     filter_horizontal = (
         "amenities",
         "facilities",
-        "house_rule",
+        "house_rules",
     )
 
     list_display = (
@@ -101,7 +102,7 @@ class RoomAdmin(admin.ModelAdmin):
         "room_type",
         "amenities",
         "facilities",
-        "house_rule",
+        "house_rules",
         "city",
         "country",
     )
