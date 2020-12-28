@@ -3,5 +3,15 @@
   "python.linting.enabled": true,
   "python.pythonPath": "C:\\Users\\wjdgh\\.virtualenvs\\airbnb-clone-v1-CiiPbZ_u\\Scripts\\python.exe",
   "python.formatting.provider": "black",
-  "python.linting.flake8Args": ["--max-line-length=88"]
+  "python.linting.flake8Args": ["--max-line-length=88"],
+  "html.format.enable": true,
+  "files.associations": {
+    "**/*.html": "html",
+    "**/templates/**/*.html": "django-html",
+    "**/templates/**/*": "django-txt",
+    "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+  },
+  "emmet.includeLanguages": {
+    "django-html": "html"
+  }
 }

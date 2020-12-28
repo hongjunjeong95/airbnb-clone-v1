@@ -1,7 +1,7 @@
 from django.shortcuts import render
-
-# Create your views here.
+from . import models
 
 
 def all_rooms(request):
-    pass
+    all_rooms = models.Room.objects.all()[:5]
+    return render(request, "rooms/home.html", context={"rooms": all_rooms})
