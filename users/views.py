@@ -48,7 +48,7 @@ class SignUpView(FormView):
     initial = {
         "first_name": "Hong Jun",
         "last_name": "Jeong",
-        "email": "wjdghdwns0@gmail.com",
+        "email": "wjdghdwns0+n@gmail.com",
     }
 
     def form_valid(self, form):
