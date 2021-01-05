@@ -8,7 +8,7 @@
   },
   "author": "Hong Jun",
   "scripts": {
-    "dev": "gulp dev"
+    "css": "gulp css"
   },
   "homepage": "https://github.com/zpskek/airbnb-clone-v1#readme",
   "dependencies": {
