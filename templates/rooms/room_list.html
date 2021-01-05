@@ -5,14 +5,16 @@
 {% endblock page_title %}
 
 {% block content %}
-    {{now}}
+    <div class="w-8/12 container mx-auto rounded-xl  bg-gray-800 h-50vh mt-32 mb-24 bg-cover bg-center" style="background-image:url(https://images.unsplash.com/photo-1536315238512-4c8cebdaaf93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop)">
+
+    </div>
 
     {% for room in rooms  %}
-        <h3>
-          <a href="{% url 'rooms:detail' room.pk %}">
-            {{room.name}} / ${{room.price}}
-          </a>
-        </h3>
+      <h3>
+        <a href="{% url 'rooms:detail' room.pk %}">
+          {{room.name}} / ${{room.price}}
+        </a>
+      </h3>
     {% endfor %}
     
     <h5> 
