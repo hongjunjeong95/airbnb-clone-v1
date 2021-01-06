@@ -62,8 +62,6 @@ class User(AbstractUser):
     )
 
     def verify_email(self):
-        print(dir(self))
-        print(f"self.email : {self.email}")
         if self.email_verified is False:
             secret = uuid.uuid4().hex[:20]
             self.email_secret = secret
