@@ -10,8 +10,10 @@
 
     {% include 'mixins/auth/auth_form.html' with cta="Update profile" %}
 
-    <div class="mt-5">
-      <a href="{% url 'users:signup' %}" class="text-green-500 font-medium">Change Password</a>
-    </div>
+    {% if object.login_method == "password" %}
+      <div class="mt-5">
+        <a href="{% url 'users:password' %}" class="text-green-500 font-medium">Change Password</a>
+      </div>
+    {% endif %}
   </div>
 {% endblock content %}
