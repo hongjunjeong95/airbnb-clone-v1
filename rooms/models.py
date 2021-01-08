@@ -62,6 +62,9 @@ class Photo(core_models.TimeStampedModel):
     def __str__(self):
         return self.caption
 
+    def get_absolute_url(self):
+        return reverse("rooms:photos", kwargs={"pk": self.pk})
+
 
 class Room(core_models.TimeStampedModel):
 
