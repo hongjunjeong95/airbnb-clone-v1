@@ -20,7 +20,7 @@ msgstr ""
 
 #: .\templates\base.html:26
 msgid "Search By City"
-msgstr "도리로 찾기"
+msgstr "도시로 찾기"
 
 #: .\templates\partials\footer.html:5
 msgid "Please don't copy us."
