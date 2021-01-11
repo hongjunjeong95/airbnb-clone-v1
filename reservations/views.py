@@ -1,7 +1,7 @@
 import datetime
 from django.views.generic import View
 from django.contrib import messages
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import redirect, reverse
 from rooms import models as room_models
 from . import models
 
@@ -30,5 +30,7 @@ def create(request, room, year, month, day):
 
 
 class ReservationDetailView(View):
-    def get(self):
-        pass
+    def get(self, pk):
+        reservation = models.Reservation.objects.get_or_none(pk=pk)
+        if not reservation:
+            return redirect(reverse("core:home"))
