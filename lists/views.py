@@ -17,6 +17,7 @@ def toggle_room(request, room_pk):
             the_list.rooms.remove(room)
     return redirect(reverse("rooms:detail", kwargs={"pk": room_pk}))
 
+
 class SeeFavsView(TemplateView):
 
     template_name = "lists/list_detail.html"

@@ -7,6 +7,7 @@ from django.core.mail import send_mail
 from django.shortcuts import reverse
 from django.utils.html import strip_tags
 from django.template.loader import render_to_string
+from . import managers
 
 
 class User(AbstractUser):
@@ -68,6 +69,7 @@ class User(AbstractUser):
     login_method = models.CharField(
         max_length=50, choices=LOGIN_CHOICES, default=LOGIN_EMAIL
     )
+    objects = managers.CustomUserModelManager()
 
     def get_absolute_url(self):
         return reverse("users:profile", kwargs={"pk": self.pk})
@@ -89,3 +91,10 @@ class User(AbstractUser):
             )
             self.save()
         return
+
+    def get_or_none(self, *args, **kwargs):
+        print(kwargs)
+        try:
+            return self.get(**kwargs)
+        except self.model.DoesNotExist:
+            return None
