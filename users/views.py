@@ -17,6 +17,8 @@ from django.contrib.messages.views import SuccessMessageMixin
 
 from . import forms, models, mixins
 
+DEBUG = bool(os.environ.get("DEBUG"))
+
 
 class LoginView(mixins.LoggedOutOnlyView, FormView):
 
@@ -90,8 +92,11 @@ def complete_verification(request, key):
 
 def github_login(request):
     client_id = os.environ.get("GH_ID")
-    redirect_uri = "http://127.0.0.1:8000/users/login/github/callback"
 
+    if DEBUG:
+        redirect_uri = "http://127.0.0.1:8000/users/login/github/callback"
+    else:
+        redirect_uri = "http://hairbnb2.eba-ikyfzszc.ap-northeast-2.elasticbeanstalk.com//users/login/github/callback"
     return redirect(
         f"https://github.com/login/oauth/authorize?client_id={client_id}&redirect_uri={redirect_uri}&scope=read:user"
     )
@@ -168,7 +173,10 @@ def github_callback(request):
 
 def kakao_login(request):
     client_id = os.environ.get("KAKAO_ID")
-    redirect_uri = "http://127.0.0.1:8000/users/login/kakao/callback"
+    if DEBUG:
+        redirect_uri = "http://127.0.0.1:8000/users/login/kakao/callback"
+    else:
+        redirect_uri = "http://hairbnb2.eba-ikyfzszc.ap-northeast-2.elasticbeanstalk.com//users/login/kakao/callback"
     return redirect(
         f"https://kauth.kakao.com/oauth/authorize?client_id={client_id}&redirect_uri={redirect_uri}&response_type=code"
     )
