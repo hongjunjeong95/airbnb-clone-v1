@@ -111,7 +111,7 @@ def github_callback(request):
         client_id = os.environ.get("GH_ID")
         client_secret = os.environ.get("GH_SECRET")
         code = request.GET.get("code", None)
-        print(code)
+
         if code is not None:
             token_request = requests.post(
                 f"https://github.com/login/oauth/access_token?client_id={client_id}&client_secret={client_secret}&code={code}",
@@ -191,7 +191,10 @@ def kakao_callback(request):
     try:
         code = request.GET.get("code", None)
         kakao_id = os.environ.get("KAKAO_ID")
-        redirect_uri = "http://127.0.0.1:8000/users/login/kakao/callback"
+        if DEBUG:
+            redirect_uri = "http://127.0.0.1:8000/users/login/kakao/callback"
+        else:
+            redirect_uri = "http://hairbnb2.eba-ikyfzszc.ap-northeast-2.elasticbeanstalk.com/users/login/kakao/callback"
         if code is not None:
             token_request = requests.post(
                 f"https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id={kakao_id}&redirect_uri={redirect_uri}&code={code}",
