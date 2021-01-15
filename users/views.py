@@ -111,6 +111,7 @@ def github_callback(request):
         client_id = os.environ.get("GH_ID")
         client_secret = os.environ.get("GH_SECRET")
         code = request.GET.get("code", None)
+        print(code)
         if code is not None:
             token_request = requests.post(
                 f"https://github.com/login/oauth/access_token?client_id={client_id}&client_secret={client_secret}&code={code}",
@@ -165,7 +166,7 @@ def github_callback(request):
                 else:
                     raise GithubException("Can't get your profile")
         else:
-            raise GithubException("Can't get code")
+            raise GithubException(f"Can't get code {code}")
     except GithubException as error:
         messages.error(request, error)
         return redirect(reverse("users:login"))
