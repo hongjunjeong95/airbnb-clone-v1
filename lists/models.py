@@ -16,7 +16,6 @@ class List(core_models.TimeStampedModel):
         return self.name
 
     def count_rooms(self):
-        print(self.rooms)
         return self.rooms.count()
 
     count_rooms.short_description = "Number of Rooms"
